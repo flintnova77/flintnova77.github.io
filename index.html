@@ -1,0 +1,1573 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>91爆料 - 综合视频资讯|企业级爆料内容平台</title>
+<meta name="description" content="91爆料官方网站，专注综合视频资讯与热点爆料内容的企业级视频平台，汇聚原创创作者、深度专题与真实话题，深耕内容生态，值得信赖的用户首选爆料社区。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2312171f'/%3E%3Cpath d='M20 18h18a10 10 0 0 1 0 20H30v8h-10z' fill='%23ff4d5e'/%3E%3Ccircle cx='39' cy='28' r='5' fill='%23ffd166'/%3E%3C/svg%3E">
+<style>
+:root{
+  --blc-bg:#0d1017;
+  --blc-panel:#151a24;
+  --blc-panel-2:#1b212e;
+  --blc-line:#2a3242;
+  --blc-text:#e8ecf4;
+  --blc-muted:#93a0b8;
+  --blc-red:#ff4d5e;
+  --blc-red-soft:#ff8391;
+  --blc-cyan:#33e0c8;
+  --blc-yellow:#ffd166;
+  --blc-radius:16px;
+  --blc-shadow:0 18px 44px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(1100px 620px at 85% -120px, rgba(255,77,94,.18), transparent 60%),
+    radial-gradient(900px 520px at 5% 8%, rgba(51,224,200,.10), transparent 60%),
+    var(--blc-bg);
+  color:var(--blc-text);
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,-apple-system,"Segoe UI",sans-serif;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font-family:inherit}
+h1,h2,h3,h4{line-height:1.35;margin:0}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+:target{scroll-margin-top:150px}
+.blc-wrap{width:min(1180px,92%);margin:0 auto}
+
+/* ============ 公告条 + 页头 吸顶 ============ */
+.blc-topbar{
+  position:relative;
+  z-index:60;
+  background:linear-gradient(90deg,#ff4d5e,#ff7a4d 55%,#ffd166);
+  color:#1a0d10;
+  font-size:13px;
+  font-weight:700;
+}
+.blc-topbar-inner{
+  display:flex;align-items:center;gap:12px;
+  padding:8px 0;flex-wrap:wrap;
+}
+.blc-topbar-label{
+  background:#1a0d10;color:#ffd166;
+  border-radius:999px;padding:1px 10px;font-size:11px;letter-spacing:.08em;
+  flex:0 0 auto;
+}
+.blc-topbar-list{display:flex;gap:22px;overflow:hidden;flex:1 1 auto;white-space:nowrap}
+.blc-topbar-list li{opacity:.92;animation:blcMarquee 18s linear infinite}
+@keyframes blcMarquee{0%,100%{transform:translateX(0)}50%{transform:translateX(-8px)}}
+
+.blc-header{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(14px);
+  background:rgba(13,16,23,.88);
+  border-bottom:1px solid var(--blc-line);
+}
+.blc-header-inner{
+  display:flex;align-items:center;gap:22px;
+  padding:14px 0;
+}
+.blc-logo{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.blc-logo-mark{
+  width:40px;height:40px;border-radius:12px;
+  background:linear-gradient(135deg,#ff4d5e,#ffd166);
+  display:grid;place-items:center;color:#150a0c;font-weight:900;font-size:17px;
+  box-shadow:0 8px 20px rgba(255,77,94,.35);
+}
+.blc-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.blc-logo-text b{font-size:19px;letter-spacing:.03em}
+.blc-logo-text span{font-size:11px;color:var(--blc-muted);letter-spacing:.16em}
+.blc-nav{display:flex;gap:6px;flex:1 1 auto;flex-wrap:wrap}
+.blc-nav a{
+  padding:7px 13px;border-radius:10px;font-size:14.5px;color:#c9d3e4;
+  transition:.22s;
+}
+.blc-nav a:hover{background:rgba(255,77,94,.14);color:#fff}
+.blc-nav a.blc-nav-active{background:rgba(255,77,94,.18);color:#fff}
+.blc-header-tools{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.blc-search{
+  display:flex;align-items:center;gap:6px;
+  background:var(--blc-panel-2);border:1px solid var(--blc-line);
+  border-radius:999px;padding:5px 6px 5px 14px;
+}
+.blc-search input{
+  background:transparent;border:0;outline:none;color:var(--blc-text);
+  font-size:13.5px;width:132px;
+}
+.blc-search input::placeholder{color:#6d7a90}
+.blc-search button{
+  border:0;cursor:pointer;border-radius:999px;padding:5px 13px;font-size:13px;
+  background:linear-gradient(135deg,#ff4d5e,#ff8391);color:#fff;font-weight:700;
+}
+.blc-burger{
+  display:none;width:42px;height:38px;border-radius:10px;
+  background:var(--blc-panel-2);border:1px solid var(--blc-line);
+  color:#e8ecf4;cursor:pointer;font-size:17px;
+}
+.blc-search-tip{
+  font-size:12.5px;color:var(--blc-cyan);
+  min-height:18px;padding:0 0 10px 4px;display:none;
+}
+.blc-search-tip.blc-show{display:block}
+
+/* ============ 首屏 ============ */
+.blc-hero{padding:56px 0 20px;position:relative;overflow:hidden}
+.blc-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.blc-kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;letter-spacing:.14em;color:var(--blc-cyan);
+  border:1px solid rgba(51,224,200,.32);border-radius:999px;padding:4px 14px;
+  background:rgba(51,224,200,.07);margin-bottom:18px;
+}
+.blc-hero h1{
+  font-size:clamp(40px,6vw,68px);
+  letter-spacing:.02em;
+  font-weight:900;
+  background:linear-gradient(100deg,#fff 12%,#ff8391 52%,#ffd166 90%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.blc-hero-sub{
+  margin-top:14px;font-size:clamp(17px,2.1vw,22px);color:#dbe3f0;font-weight:600;
+}
+.blc-hero-sub em{color:var(--blc-yellow);font-style:normal}
+.blc-hero-desc{margin-top:18px;color:var(--blc-muted);font-size:15px;max-width:56ch}
+.blc-hero-stats{display:flex;gap:28px;margin-top:26px;flex-wrap:wrap}
+.blc-hero-stats div b{display:block;font-size:26px;color:#fff;letter-spacing:.02em}
+.blc-hero-stats div span{font-size:12.5px;color:var(--blc-muted)}
+.blc-hero-actions{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.blc-btn{
+  border:0;cursor:pointer;border-radius:12px;padding:12px 24px;
+  font-size:15px;font-weight:700;transition:.23s;
+}
+.blc-btn-primary{
+  background:linear-gradient(135deg,#ff4d5e,#ff8391);color:#fff;
+  box-shadow:0 12px 28px rgba(255,77,94,.32);
+}
+.blc-btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 34px rgba(255,77,94,.42)}
+.blc-btn-ghost{
+  background:transparent;border:1px solid var(--blc-line);color:#d5deec;
+}
+.blc-btn-ghost:hover{border-color:var(--blc-cyan);color:var(--blc-cyan)}
+.blc-hero-visual{position:relative}
+.blc-hero-frame{
+  border-radius:22px;overflow:hidden;border:1px solid var(--blc-line);
+  box-shadow:var(--blc-shadow);position:relative;
+}
+.blc-hero-frame img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.blc-hero-badge{
+  position:absolute;left:16px;bottom:16px;
+  display:flex;align-items:center;gap:10px;
+  background:rgba(13,16,23,.82);border:1px solid var(--blc-line);
+  border-radius:12px;padding:8px 14px;backdrop-filter:blur(8px);font-size:13px;
+}
+.blc-live-dot{width:8px;height:8px;border-radius:50%;background:var(--blc-red);box-shadow:0 0 0 4px rgba(255,77,94,.24);animation:blcPulse 1.6s infinite}
+@keyframes blcPulse{50%{box-shadow:0 0 0 9px rgba(255,77,94,0)}}
+.blc-hero-float{
+  position:absolute;right:-12px;top:-18px;
+  background:var(--blc-panel);border:1px solid var(--blc-line);
+  border-radius:14px;padding:10px 16px;font-size:12.5px;color:var(--blc-cyan);
+  box-shadow:var(--blc-shadow);
+}
+
+/* ============ 通用 section ============ */
+.blc-section{padding:56px 0}
+.blc-section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:28px;flex-wrap:wrap}
+.blc-section-head h2{font-size:clamp(24px,3.4vw,34px);letter-spacing:.02em}
+.blc-section-head h2 span{color:var(--blc-red)}
+.blc-section-head p{color:var(--blc-muted);font-size:14px;max-width:62ch}
+.blc-eyebrow{
+  font-size:12px;letter-spacing:.22em;color:var(--blc-red-soft);
+  text-transform:uppercase;display:block;margin-bottom:8px;font-weight:700;
+}
+.blc-divider{height:1px;background:linear-gradient(90deg,transparent,var(--blc-line),transparent)}
+
+/* ============ 深度解析长文 ============ */
+.blc-about{
+  background:linear-gradient(160deg,var(--blc-panel),rgba(21,26,36,.4));
+  border:1px solid var(--blc-line);border-radius:var(--blc-radius);
+  padding:38px clamp(20px,4vw,48px);
+}
+.blc-about h2{margin-bottom:10px}
+.blc-about h3{margin:26px 0 8px;font-size:19px;color:#fff}
+.blc-about h3::before{content:"▍";color:var(--blc-red);margin-right:6px}
+.blc-about p{color:#bcc7d9;font-size:15px;margin-bottom:8px}
+.blc-about strong{color:var(--blc-yellow);font-weight:700}
+.blc-about-2col{display:grid;grid-template-columns:1fr 1fr;gap:0 34px}
+
+/* ============ 焦点内容 ============ */
+.blc-focus-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:22px}
+.blc-card{
+  background:var(--blc-panel);border:1px solid var(--blc-line);
+  border-radius:var(--blc-radius);overflow:hidden;transition:.28s;
+}
+.blc-card:hover{transform:translateY(-4px);border-color:rgba(255,77,94,.5);box-shadow:var(--blc-shadow)}
+.blc-cover{position:relative;overflow:hidden;background:#0a0d13}
+.blc-cover img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:.5s}
+.blc-card:hover .blc-cover img{transform:scale(1.05)}
+.blc-cover::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 42%,rgba(5,7,11,.82));
+}
+.blc-play{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:52px;height:52px;border-radius:50%;
+  background:rgba(255,77,94,.9);display:grid;place-items:center;
+  color:#fff;font-size:18px;z-index:3;box-shadow:0 0 0 8px rgba(255,77,94,.16);
+  transition:.25s;
+}
+.blc-card:hover .blc-play{background:var(--blc-yellow);color:#160d0f;transform:translate(-50%,-50%) scale(1.08)}
+.blc-tagline{
+  position:absolute;left:14px;top:14px;z-index:3;
+  background:rgba(13,16,23,.86);border:1px solid var(--blc-line);
+  color:var(--blc-cyan);font-size:11.5px;font-weight:700;
+  border-radius:999px;padding:3px 11px;letter-spacing:.05em;
+}
+.blc-meta-on-cover{
+  position:absolute;left:14px;bottom:12px;right:14px;z-index:3;
+  display:flex;gap:10px;font-size:12px;color:#dbe3f0;flex-wrap:wrap;
+}
+.blc-body{padding:18px 20px 20px}
+.blc-body h3{font-size:17.5px;color:#fff;margin-bottom:8px}
+.blc-body h3 a:hover{color:var(--blc-red-soft)}
+.blc-body p{font-size:13.8px;color:var(--blc-muted);margin-bottom:12px}
+.blc-card-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.blc-author{display:flex;align-items:center;gap:8px;font-size:12.5px;color:#c3cddd}
+.blc-avatar{
+  width:28px;height:28px;border-radius:50%;display:grid;place-items:center;
+  font-size:12px;font-weight:800;color:#0d1017;flex:0 0 auto;
+}
+.blc-counts{display:flex;gap:14px;font-size:12px;color:var(--blc-muted)}
+.blc-mini-list{display:grid;gap:14px}
+.blc-mini{
+  display:grid;grid-template-columns:132px 1fr;gap:14px;
+  background:var(--blc-panel);border:1px solid var(--blc-line);
+  border-radius:14px;overflow:hidden;transition:.25s;
+}
+.blc-mini:hover{border-color:rgba(51,224,200,.45);transform:translateX(3px)}
+.blc-mini .blc-cover img{aspect-ratio:16/9;height:100%}
+.blc-mini .blc-cover::after{display:none}
+.blc-mini .blc-play{width:34px;height:34px;font-size:13px;box-shadow:none}
+.blc-mini-body{padding:12px 14px 12px 0}
+.blc-mini-body h4{font-size:14.5px;color:#fff;margin-bottom:6px}
+.blc-mini-body p{font-size:12.5px;color:var(--blc-muted);margin-bottom:8px}
+.blc-mini-tags{display:flex;gap:6px;flex-wrap:wrap}
+.blc-chip{
+  font-size:11px;color:#a9b6ca;border:1px solid var(--blc-line);
+  border-radius:999px;padding:1px 9px;background:rgba(255,255,255,.02);
+}
+.blc-chip-hot{color:var(--blc-yellow);border-color:rgba(255,209,102,.4)}
+
+/* ============ 视频流网格 ============ */
+.blc-filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.blc-filter button{
+  cursor:pointer;font-size:13px;padding:7px 16px;border-radius:999px;
+  background:var(--blc-panel-2);border:1px solid var(--blc-line);color:#bcc7d9;transition:.2s;
+}
+.blc-filter button.blc-on{background:rgba(255,77,94,.18);border-color:rgba(255,77,94,.55);color:#fff}
+.blc-video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.blc-video-grid .blc-card.blc-hide{display:none}
+.blc-actions{display:flex;gap:8px;margin-top:12px;padding-top:12px;border-top:1px dashed var(--blc-line)}
+.blc-act{
+  flex:1;cursor:pointer;border:1px solid var(--blc-line);background:transparent;
+  border-radius:9px;padding:6px 4px;font-size:12px;color:#aab7ca;transition:.2s;
+}
+.blc-act:hover{border-color:var(--blc-cyan);color:var(--blc-cyan)}
+.blc-act.blc-liked{color:var(--blc-red-soft);border-color:rgba(255,77,94,.55);background:rgba(255,77,94,.1)}
+.blc-act.blc-saved{color:var(--blc-yellow);border-color:rgba(255,209,102,.55);background:rgba(255,209,102,.1)}
+
+/* ============ 专题 ============ */
+.blc-topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.blc-topic{
+  position:relative;border-radius:var(--blc-radius);overflow:hidden;
+  border:1px solid var(--blc-line);background:var(--blc-panel);transition:.28s;
+}
+.blc-topic:hover{transform:translateY(-4px);border-color:rgba(255,209,102,.5)}
+.blc-topic img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.blc-topic-mask{
+  position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:18px;background:linear-gradient(180deg,rgba(5,7,11,.1) 30%,rgba(5,7,11,.92));
+}
+.blc-topic-mask h3{font-size:17px;color:#fff;margin-bottom:6px}
+.blc-topic-mask p{font-size:12.5px;color:#c3cddd;margin-bottom:10px}
+.blc-status{
+  align-self:flex-start;font-size:11px;border-radius:999px;padding:2px 10px;font-weight:700;
+}
+.blc-status-live{background:rgba(255,77,94,.2);color:var(--blc-red-soft);border:1px solid rgba(255,77,94,.45)}
+.blc-status-soon{background:rgba(51,224,200,.14);color:var(--blc-cyan);border:1px solid rgba(51,224,200,.4)}
+.blc-status-done{background:rgba(255,209,102,.14);color:var(--blc-yellow);border:1px solid rgba(255,209,102,.4)}
+
+/* ============ 创作者 ============ */
+.blc-creator-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.blc-creator{
+  background:var(--blc-panel);border:1px solid var(--blc-line);
+  border-radius:var(--blc-radius);padding:22px 18px;text-align:center;transition:.26s;
+}
+.blc-creator:hover{border-color:rgba(51,224,200,.5);transform:translateY(-4px)}
+.blc-creator-av{
+  width:66px;height:66px;border-radius:50%;margin:0 auto 12px;
+  display:grid;place-items:center;font-size:22px;font-weight:900;color:#0d1017;
+}
+.blc-creator h3{font-size:16px;color:#fff;margin-bottom:2px}
+.blc-creator .blc-field{font-size:12px;color:var(--blc-cyan);margin-bottom:8px}
+.blc-creator p{font-size:12.5px;color:var(--blc-muted);margin-bottom:12px;min-height:56px}
+.blc-creator-nums{display:flex;justify-content:center;gap:16px;font-size:12px;color:#aab7ca;margin-bottom:12px}
+.blc-creator-nums b{display:block;color:#fff;font-size:14.5px}
+
+/* ============ 作品墙 ============ */
+.blc-wall{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:112px;gap:12px}
+.blc-wall figure{
+  margin:0;position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--blc-line);
+  grid-column:span 2;grid-row:span 1;
+}
+.blc-wall figure.blc-w-lg{grid-column:span 3;grid-row:span 2}
+.blc-wall figure.blc-w-md{grid-column:span 2;grid-row:span 2}
+.blc-wall figure img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.blc-wall figure:hover img{transform:scale(1.06)}
+.blc-wall figcaption{
+  position:absolute;inset:auto 0 0 0;padding:20px 12px 10px;font-size:12px;color:#e8ecf4;
+  background:linear-gradient(180deg,transparent,rgba(5,7,11,.9));
+}
+
+/* ============ 评论 / 评价 ============ */
+.blc-review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.blc-review{
+  background:var(--blc-panel);border:1px solid var(--blc-line);border-radius:14px;
+  padding:18px 20px;transition:.24s;
+}
+.blc-review:hover{border-color:rgba(255,131,145,.45)}
+.blc-review-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.blc-review-head b{font-size:13.5px;color:#fff}
+.blc-review-head span{font-size:11.5px;color:var(--blc-muted)}
+.blc-stars{color:var(--blc-yellow);font-size:12px;letter-spacing:2px}
+.blc-review p{font-size:13.5px;color:#bcc7d9}
+.blc-review-date{margin-top:10px;font-size:11.5px;color:#6d7a90}
+
+/* ============ 动态 / 榜单 ============ */
+.blc-two-col{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+.blc-timeline{position:relative;padding-left:24px}
+.blc-timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--blc-red),var(--blc-cyan),transparent)}
+.blc-timeline li{position:relative;margin-bottom:22px}
+.blc-timeline li::before{
+  content:"";position:absolute;left:-23px;top:7px;width:10px;height:10px;border-radius:50%;
+  background:var(--blc-bg);border:2px solid var(--blc-red);
+}
+.blc-timeline time{font-size:12px;color:var(--blc-cyan);letter-spacing:.05em}
+.blc-timeline h4{font-size:15px;color:#fff;margin:2px 0 4px}
+.blc-timeline p{font-size:13px;color:var(--blc-muted)}
+.blc-rank{background:var(--blc-panel);border:1px solid var(--blc-line);border-radius:var(--blc-radius);padding:6px 20px}
+.blc-rank li{display:flex;align-items:center;gap:14px;padding:13px 0;border-bottom:1px dashed var(--blc-line);font-size:13.5px}
+.blc-rank li:last-child{border-bottom:0}
+.blc-rank-no{
+  width:26px;height:26px;border-radius:8px;display:grid;place-items:center;flex:0 0 auto;
+  font-size:12.5px;font-weight:800;background:var(--blc-panel-2);color:#aab7ca;border:1px solid var(--blc-line);
+}
+.blc-rank li:nth-child(1) .blc-rank-no{background:linear-gradient(135deg,#ff4d5e,#ffd166);color:#150a0c;border:0}
+.blc-rank li:nth-child(2) .blc-rank-no{background:rgba(255,209,102,.2);color:var(--blc-yellow)}
+.blc-rank li:nth-child(3) .blc-rank-no{background:rgba(51,224,200,.16);color:var(--blc-cyan)}
+.blc-rank-t{flex:1 1 auto;color:#dbe3f0}
+.blc-rank-v{font-size:12px;color:var(--blc-muted);flex:0 0 auto}
+
+/* ============ FAQ ============ */
+.blc-faq details{
+  background:var(--blc-panel);border:1px solid var(--blc-line);border-radius:12px;
+  padding:0 20px;margin-bottom:12px;transition:.24s;
+}
+.blc-faq details[open]{border-color:rgba(51,224,200,.45)}
+.blc-faq summary{
+  cursor:pointer;list-style:none;padding:16px 0;font-size:15px;font-weight:600;color:#e8ecf4;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.blc-faq summary::-webkit-details-marker{display:none}
+.blc-faq summary::after{content:"＋";color:var(--blc-red-soft);font-weight:700}
+.blc-faq details[open] summary::after{content:"－";color:var(--blc-cyan)}
+.blc-faq details p{padding:0 0 18px;font-size:13.8px;color:var(--blc-muted)}
+
+/* ============ 合作 / 投稿 ============ */
+.blc-partners{display:flex;gap:14px;flex-wrap:wrap}
+.blc-partner{
+  flex:1 1 160px;border:1px dashed var(--blc-line);border-radius:12px;
+  padding:18px 16px;text-align:center;color:#bcc7d9;font-size:13.5px;transition:.22s;
+}
+.blc-partner:hover{border-color:var(--blc-cyan);color:#fff;background:rgba(51,224,200,.05)}
+.blc-partner b{display:block;font-size:15px;color:#fff;margin-bottom:3px}
+.blc-submit{
+  margin-top:26px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;
+  background:linear-gradient(120deg,rgba(255,77,94,.16),rgba(51,224,200,.1));
+  border:1px solid var(--blc-line);border-radius:var(--blc-radius);padding:26px 28px;
+}
+.blc-submit h3{font-size:20px;color:#fff;margin-bottom:6px}
+.blc-submit p{font-size:13.5px;color:#bcc7d9}
+
+/* ============ 页脚 ============ */
+.blc-footer{margin-top:70px;border-top:1px solid var(--blc-line);background:rgba(10,13,19,.9);padding:48px 0 26px}
+.blc-footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px}
+.blc-footer h4{font-size:14px;color:#fff;margin-bottom:14px;letter-spacing:.06em}
+.blc-footer p,.blc-footer li{font-size:13px;color:var(--blc-muted);margin-bottom:8px}
+.blc-footer li a:hover{color:var(--blc-red-soft)}
+.blc-foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.blc-foot-bottom{
+  margin-top:34px;padding-top:18px;border-top:1px solid var(--blc-line);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12px;color:#6d7a90;
+}
+.blc-foot-badges{display:flex;gap:8px;flex-wrap:wrap}
+.blc-foot-badges span{border:1px solid var(--blc-line);border-radius:6px;padding:2px 8px;font-size:11.5px}
+
+/* ============ 回顶 & Toast & Modal ============ */
+.blc-top-btn{
+  position:fixed;right:22px;bottom:26px;z-index:70;
+  width:46px;height:46px;border-radius:14px;border:1px solid var(--blc-line);
+  background:var(--blc-panel);color:var(--blc-red-soft);cursor:pointer;font-size:18px;
+  opacity:0;pointer-events:none;transition:.26s;box-shadow:var(--blc-shadow);
+}
+.blc-top-btn.blc-show{opacity:1;pointer-events:auto}
+.blc-top-btn:hover{color:var(--blc-yellow);border-color:var(--blc-yellow)}
+.blc-toast{
+  position:fixed;left:50%;bottom:36px;transform:translate(-50%,20px);
+  background:rgba(13,16,23,.96);border:1px solid var(--blc-cyan);color:var(--blc-cyan);
+  padding:11px 24px;border-radius:999px;font-size:13.5px;font-weight:600;
+  opacity:0;pointer-events:none;transition:.3s;z-index:99;box-shadow:var(--blc-shadow);
+}
+.blc-toast.blc-show{opacity:1;transform:translate(-50%,0)}
+.blc-modal{
+  position:fixed;inset:0;z-index:90;display:none;place-items:center;padding:20px;
+  background:rgba(5,7,11,.72);backdrop-filter:blur(6px);
+}
+.blc-modal.blc-open{display:grid}
+.blc-modal-box{
+  width:min(520px,100%);background:var(--blc-panel);border:1px solid var(--blc-line);
+  border-radius:18px;padding:28px;box-shadow:var(--blc-shadow);position:relative;
+  max-height:86vh;overflow:auto;
+}
+.blc-modal-box h3{font-size:20px;color:#fff;margin-bottom:8px}
+.blc-modal-box p{font-size:13.5px;color:var(--blc-muted);margin-bottom:16px}
+.blc-modal-close{
+  position:absolute;right:14px;top:12px;background:transparent;border:0;color:#93a0b8;
+  font-size:22px;cursor:pointer;line-height:1;
+}
+.blc-modal-close:hover{color:var(--blc-red-soft)}
+.blc-field-row{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.blc-field-row label{font-size:12.5px;color:#bcc7d9}
+.blc-field-row input,.blc-field-row textarea{
+  background:var(--blc-panel-2);border:1px solid var(--blc-line);border-radius:10px;
+  padding:10px 12px;color:var(--blc-text);font-size:13.5px;outline:none;font-family:inherit;
+}
+.blc-field-row input:focus,.blc-field-row textarea:focus{border-color:var(--blc-cyan)}
+.blc-share-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.blc-share-row button{
+  cursor:pointer;border-radius:10px;padding:9px 18px;font-size:13px;border:1px solid var(--blc-line);
+  background:var(--blc-panel-2);color:#dbe3f0;transition:.2s;
+}
+.blc-share-row button:hover{border-color:var(--blc-cyan);color:var(--blc-cyan)}
+
+@media (max-width:1024px){
+  .blc-hero-grid,.blc-focus-grid,.blc-two-col,.blc-about-2col{grid-template-columns:1fr}
+  .blc-video-grid,.blc-topic-grid{grid-template-columns:repeat(2,1fr)}
+  .blc-creator-grid{grid-template-columns:repeat(2,1fr)}
+  .blc-footer-grid{grid-template-columns:1fr 1fr}
+  .blc-wall{grid-template-columns:repeat(4,1fr)}
+  .blc-wall figure.blc-w-lg{grid-column:span 4}
+  .blc-wall figure.blc-w-md{grid-column:span 2}
+}
+@media (max-width:760px){
+  .blc-nav{
+    display:none;position:absolute;left:0;right:0;top:100%;
+    background:rgba(13,16,23,.98);border-bottom:1px solid var(--blc-line);
+    padding:12px 4% 18px;flex-direction:column;gap:4px;
+  }
+  .blc-nav.blc-open{display:flex}
+  .blc-burger{display:block}
+  .blc-search input{width:88px}
+  .blc-header-tools .blc-search{display:none}
+  .blc-topbar-list{gap:18px;font-size:12px}
+  .blc-video-grid,.blc-topic-grid,.blc-review-grid{grid-template-columns:1fr}
+  .blc-creator-grid{grid-template-columns:1fr}
+  .blc-wall{grid-template-columns:repeat(2,1fr);grid-auto-rows:104px}
+  .blc-wall figure,.blc-wall figure.blc-w-lg,.blc-wall figure.blc-w-md{grid-column:span 2;grid-row:span 1}
+  .blc-blc-submit,.blc-submit{grid-template-columns:1fr}
+  .blc-footer-grid{grid-template-columns:1fr}
+  .blc-hero-stats{gap:20px}
+  .blc-mini{grid-template-columns:110px 1fr}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="blc-topbar" id="blcTopbar">
+  <div class="blc-wrap blc-topbar-inner">
+    <span class="blc-topbar-label">官方发布</span>
+    <ul class="blc-topbar-list">
+      <li>「热点追踪 · 第 47 期」新增 12 条深度爆料线索，报名解读直播开放中</li>
+      <li>创作者激励计划第二季开启上传通道，扶持 30 位新锐作者</li>
+      <li>「真相与视角」专题投票进行中，参与即可获得社区徽章</li>
+    </ul>
+  </div>
+</div>
+
+<header class="blc-header">
+  <div class="blc-wrap blc-header-inner">
+    <a class="blc-logo" href="#blcHome" aria-label="91爆料官方网站首页">
+      <span class="blc-logo-mark">91</span>
+      <span class="blc-logo-text">
+        <b>91爆料</b>
+        <span>BAOLIAO VIDEO</span>
+      </span>
+    </a>
+    <nav class="blc-nav" id="blcNav" aria-label="主导航">
+      <a href="#blcHome" class="blc-nav-active">首页</a>
+      <a href="#blcAbout">品牌解析</a>
+      <a href="#blcFocus">焦点视频</a>
+      <a href="#blcStream">爆料流</a>
+      <a href="#blcTopics">专题企划</a>
+      <a href="#blcCreators">创作者</a>
+      <a href="#blcWall">影像墙</a>
+      <a href="#blcVoice">用户口碑</a>
+      <a href="#blcNews">企业动态</a>
+      <a href="#blcHelp">帮助</a>
+    </nav>
+    <div class="blc-header-tools">
+      <form class="blc-search" id="blcSearchForm" role="search" onsubmit="return false;">
+        <input id="blcSearchInput" type="search" placeholder="搜索爆料 / 创作者" aria-label="站内搜索">
+        <button type="submit" id="blcSearchBtn">搜索</button>
+      </form>
+      <button class="blc-burger" id="blcBurger" aria-label="展开导航" aria-expanded="false">☰</button>
+    </div>
+  </div>
+  <div class="blc-wrap"><div class="blc-search-tip" id="blcSearchTip"></div></div>
+</header>
+
+<main>
+
+<!-- ============ 首屏 ============ -->
+<section class="blc-hero" id="blcHome">
+  <div class="blc-wrap blc-hero-grid">
+    <div>
+      <span class="blc-kicker">● 91爆料官方网站 · 企业级视频品牌</span>
+      <h1>91爆料</h1>
+      <p class="blc-hero-sub">让每一条线索，都有<em>被看见的力量</em></p>
+      <p class="blc-hero-desc">
+        91爆料是企业级综合视频资讯品牌，以「真实、专业、持续运营」为核心，为创作者与用户搭建高品质的爆料内容生态。
+        平台深耕热点追踪、事实核查与深度访谈，用视频承载多元声音，让资讯不止于快，更值得信赖。
+      </p>
+      <div class="blc-hero-stats">
+        <div><b>3,860+</b><span>原创视频内容</span></div>
+        <div><b>1,240+</b><span>签约创作者</span></div>
+        <div><b>96.4%</b><span>社区正向口碑</span></div>
+      </div>
+      <div class="blc-hero-actions">
+        <a class="blc-btn blc-btn-primary" href="#blcStream">进入爆料流</a>
+        <a class="blc-btn blc-btn-ghost" href="#blcAbout">了解品牌解析</a>
+        <button class="blc-btn blc-btn-ghost" data-blc-modal="submit">我要投稿</button>
+      </div>
+    </div>
+    <div class="blc-hero-visual">
+      <div class="blc-hero-float">今日新增线索 38 条</div>
+      <div class="blc-hero-frame">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='bg1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23101720'/%3E%3Cstop offset='1' stop-color='%232a1420'/%3E%3C/linearGradient%3E%3ClinearGradient id='beam' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff4d5e' stop-opacity='.85'/%3E%3Cstop offset='1' stop-color='%23ffd166' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23bg1)'/%3E%3Ccircle cx='640' cy='110' r='150' fill='url(%23beam)'/%3E%3Cpath d='M0 380 L180 250 L330 330 L470 190 L640 300 L800 210 L800 500 L0 500 Z' fill='%231b2433' opacity='.9'/%3E%3Cpath d='M0 430 L150 330 L300 400 L460 290 L620 380 L800 320 L800 500 L0 500 Z' fill='%23121a26'/%3E%3Crect x='60' y='60' width='210' height='120' rx='14' fill='%23151a24' stroke='%23ff4d5e' stroke-width='2'/%3E%3Crect x='80' y='84' width='90' height='9' rx='4' fill='%23ff4d5e'/%3E%3Crect x='80' y='104' width='150' height='7' rx='3' fill='%23556077'/%3E%3Crect x='80' y='121' width='120' height='7' rx='3' fill='%23556077'/%3E%3Crect x='80' y='138' width='170' height='7' rx='3' fill='%2333e0c8' opacity='.7'/%3E%3Ccircle cx='640' cy='360' r='58' fill='%23ff4d5e' opacity='.92'/%3E%3Cpath d='M626 332 L626 388 L672 360 Z' fill='%23fff'/%3E%3C/svg%3E" alt="91爆料品牌首屏主视觉：爆料线索数据面板与播放符号">
+        <div class="blc-hero-badge"><span class="blc-live-dot"></span>热点追踪直播间 · 正在解读第 47 期线索</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 品牌解析长文 ============ -->
+<section class="blc-section" id="blcAbout">
+  <div class="blc-wrap">
+    <div class="blc-about">
+      <span class="blc-eyebrow">Brand Insight</span>
+      <h2>关于 <span>91爆料</span>：一个持续运营的视频爆料内容生态</h2>
+      <p><strong>91爆料官方网站</strong>是一个以综合视频资讯为主体形态的企业级内容品牌。我们并不把自己定义为“信息搬运的通道”，而更愿意把自己看作一个持续运营的<strong>内容生态</strong>：一端连接愿意认真讲述与核查的创作者，另一端连接希望获得真实、专业、可追溯信息的用户。平台自建立以来，坚持原创优先、正版授权高清呈现、创作者共益三条底线，在综合资讯这一垂直领域内逐步形成了清晰的口碑与影响力。</p>
+
+      <div class="blc-about-2col">
+        <div>
+          <h3>品牌定位：真实优先的综合视频资讯平台</h3>
+          <p>在信息过载的时代，速度早已不是稀缺资源，可验证的真相才是。91爆料把“真实”放在品牌价值序列的第一位：所有进入焦点位的内容，都需要经过线索来源说明、关键画面复核与发布前二次确认三个环节。这使得我们产出的精品内容在时效上或许不是最快的，但在准确度与完整度上更容易被用户信赖。</p>
+          <p>作为一个面向大众的视频品牌，我们同时保持多元与包容：社会热点、行业观察、人物访谈、城市探索、生活方式纪实都在我们的内容版图之内。我们不预设单一价值答案，而是提供足够充分的事实与视角，让用户在观看之后自己形成判断。这正是91爆料作为企业级平台与普通短视频账号的根本差异。</p>
+
+          <h3>内容生态：创作者、专题与社区三线并行</h3>
+          <p>内容生态的健康程度，决定了平台能走多远。91爆料以三线并行的方式搭建生态：第一条线是<strong>创作者矩阵</strong>，签约与孵化并举，为不同风格的创作者提供选题支持、版权保护与收益分成；第二条线是<strong>专题企划</strong>，由官方编辑部牵头，围绕同一议题组织多视角内容，形成可被检索、可被引用的内容资产；第三条线是<strong>社区互动</strong>，用户可以在评论区补充线索、参与投票、发起挑战，让内容在发布之后继续生长。</p>
+          <p>三线并行的直接结果是：单条视频不再是孤立的流量单位，而是内容网络中的一个节点。用户从一条爆料进入，往往会被引导至同主题的深度访谈、时间线梳理与后续追踪，这种结构化的内容组织方式，是我们区别于纯算法推荐产品的核心设计。</p>
+        </div>
+        <div>
+          <h3>品质与匠心：把核查看作产品的一部分</h3>
+          <p>我们把事实核查团队视为产品团队的一部分，而不是成本中心。核查流程包含素材来源登记、关键帧比对、多方信源交叉、发布后修订四个阶段。所有修订记录公开可查，用户可以在内容页看到“首次发布 / 最近修订”的时间标记。这种对品质的坚持，让我们在行业观察类内容上积累了较厚的口碑。</p>
+          <p>在技术层面，平台持续投入高清转码与播放体验优化，确保在不同网络环境下都能获得稳定清晰的观看感受。我们相信，<strong>用户至上</strong>不是一句口号，而是体现在每一次加载、每一次拖动进度条、每一次切换清晰度的细节里。</p>
+
+          <h3>行业领先与社会责任</h3>
+          <p>随着平台影响力扩大，社会责任的分量也随之增加。91爆料设立了专门的青少年保护与隐私脱敏规范：涉及未成年人、医疗信息、个人住址等敏感内容，一律经过脱敏处理后才允许发布。<strong>官方发布</strong>的每一条内容，都要回答一个问题：它是否对公共利益有正向价值。</p>
+          <p>我们也持续开展创作者成长计划，为新人提供选题工作坊、剪辑公开课与法律常识培训，让更多创作者在91爆料获得可持续的成长与陪伴。我们相信，一个值得信赖的平台，最终是由一群值得信赖的创作者共同塑造的。</p>
+
+          <h3>面向未来：从爆料到共识</h3>
+          <p>爆料只是起点，共识才是终点。未来，91爆料将继续深耕综合视频资讯这一垂直领域，完善专题化、系列化的内容结构，同时开放更多合作接口与企业级服务，让品牌、机构与创作者能够在同一套内容标准下协作。我们期待与更多伙伴一起，把真实的力量传递得更远。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 焦点视频 ============ -->
+<section class="blc-section" id="blcFocus">
+  <div class="blc-wrap">
+    <div class="blc-section-head">
+      <div>
+        <span class="blc-eyebrow">Focus</span>
+        <h2>焦点视频 · <span>本周深度追踪</span></h2>
+        <p>由编辑部与签约创作者联合出品，覆盖热点追踪、事实核查与人物访谈三个方向。</p>
+      </div>
+      <a class="blc-btn blc-btn-ghost" href="#blcStream">查看全部内容</a>
+    </div>
+
+    <div class="blc-focus-grid">
+      <article class="blc-card">
+        <div class="blc-cover">
+          <span class="blc-tagline">深度追踪</span>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='f1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23233a52'/%3E%3Cstop offset='1' stop-color='%23111822'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23f1)'/%3E%3Cg stroke='%2333e0c8' stroke-opacity='.45' stroke-width='2' fill='none'%3E%3Cpath d='M60 360 L200 250 L320 300 L440 190 L580 260 L740 150'/%3E%3C/g%3E%3Cg fill='%23ff4d5e'%3E%3Ccircle cx='200' cy='250' r='7'/%3E%3Ccircle cx='440' cy='190' r='7'/%3E%3Ccircle cx='740' cy='150' r='7'/%3E%3C/g%3E%3Crect x='60' y='70' width='260' height='96' rx='12' fill='%230d1017' opacity='.82' stroke='%23ff4d5e'/%3E%3Crect x='82' y='92' width='120' height='10' rx='5' fill='%23ff8391'/%3E%3Crect x='82' y='114' width='190' height='8' rx='4' fill='%23556077'/%3E%3Crect x='82' y='134' width='150' height='8' rx='4' fill='%23556077'/%3E%3C/svg%3E" alt="焦点视频封面：热点事件时间线梳理与多信源交叉核查">
+          <span class="blc-play" aria-hidden="true">▶</span>
+          <div class="blc-meta-on-cover"><span>时长 24:18</span><span>2026-11-16</span><span>核查纪实</span></div>
+        </div>
+        <div class="blc-body">
+          <h3><a href="#blcFocus">一图一流转：12 条线索的交叉核查全过程</a></h3>
+          <p>从一条匿名投稿到最终成片，我们把整条核查链路完整拍了下来：素材如何登记、关键帧如何比对、被误解的截图如何被推翻，以及发布之后两次修订的原因说明。</p>
+          <div class="blc-card-foot">
+            <span class="blc-author"><span class="blc-avatar" style="background:linear-gradient(135deg,#ff4d5e,#ffd166)">核</span>核查组 · 阿衡</span>
+            <span class="blc-counts"><span>♡ 12.4k</span><span>◈ 3.2k</span></span>
+          </div>
+        </div>
+      </article>
+
+      <div class="blc-mini-list">
+        <a class="blc-mini" href="#blcFocus">
+          <div class="blc-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%231a2230'/%3E%3Crect x='30' y='120' width='34' height='70' fill='%23ff4d5e'/%3E%3Crect x='78' y='90' width='34' height='100' fill='%23ffd166'/%3E%3Crect x='126' y='60' width='34' height='130' fill='%2333e0c8'/%3E%3Crect x='174' y='102' width='34' height='88' fill='%23ff8391'/%3E%3Crect x='222' y='42' width='34' height='148' fill='%23ff4d5e'/%3E%3Crect x='270' y='80' width='34' height='110' fill='%23ffd166'/%3E%3Crect x='318' y='30' width='34' height='160' fill='%2333e0c8'/%3E%3C/svg%3E" alt="数据图表封面：近半年公众关注话题热度变化">
+            <span class="blc-play" aria-hidden="true">▶</span>
+          </div>
+          <div class="blc-mini-body">
+            <h4>数据会说话：近半年热点话题的热度曲线与冷却周期</h4>
+            <p>行业观察 · 用播放与互动数据还原议题生命周期</p>
+            <div class="blc-mini-tags"><span class="blc-chip blc-chip-hot">热度榜</span><span class="blc-chip">数据可视化</span></div>
+          </div>
+        </a>
+        <a class="blc-mini" href="#blcFocus">
+          <div class="blc-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%23241a26'/%3E%3Ccircle cx='120' cy='112' r='54' fill='%23ff8391' opacity='.85'/%3E%3Ccircle cx='200' cy='112' r='54' fill='%2333e0c8' opacity='.65'/%3E%3Ccircle cx='280' cy='112' r='54' fill='%23ffd166' opacity='.75'/%3E%3Crect x='40' y='186' width='320' height='8' rx='4' fill='%23556077'/%3E%3C/svg%3E" alt="人物访谈封面：三视角对话中的信息核实者对谈">
+            <span class="blc-play" aria-hidden="true">▶</span>
+          </div>
+          <div class="blc-mini-body">
+            <h4>三视角对谈：当信息核实者、当事人与旁观者坐在一起</h4>
+            <p>人物访谈 · 一场没有标准答案的圆桌对话</p>
+            <div class="blc-mini-tags"><span class="blc-chip">访谈</span><span class="blc-chip">多元视角</span></div>
+          </div>
+        </a>
+        <a class="blc-mini" href="#blcFocus">
+          <div class="blc-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%23101620'/%3E%3Cg stroke='%23ff4d5e' stroke-width='3' fill='none'%3E%3Cpath d='M40 180 L120 120 L200 150 L280 80 L360 110'/%3E%3C/g%3E%3Crect x='40' y='30' width='150' height='44' rx='8' fill='%230d1017' stroke='%2333e0c8'/%3E%3Ctext x='58' y='59' font-size='20' fill='%2333e0c8' font-family='monospace'%3EUPLOAD%3C/text%3E%3C/svg%3E" alt="创作幕后封面：爆料内容从上传到审核的工作流程">
+            <span class="blc-play" aria-hidden="true">▶</span>
+          </div>
+          <div class="blc-mini-body">
+            <h4>创作幕后：一条爆料内容从上传到发布要过几道关</h4>
+            <p>流程揭秘 · 审核、脱敏与多端适配的完整记录</p>
+            <div class="blc-mini-tags"><span class="blc-chip">幕后</span><span class="blc-chip">上传攻略</span></div>
+          </div>
+        </a>
+        <a class="blc-mini" href="#blcFocus">
+          <div class="blc-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%231b2130'/%3E%3Crect x='26' y='26' width='120' height='76' rx='8' fill='%2333e0c8' opacity='.7'/%3E%3Crect x='160' y='26' width='120' height='76' rx='8' fill='%23ff4d5e' opacity='.7'/%3E%3Crect x='294' y='26' width='80' height='76' rx='8' fill='%23ffd166' opacity='.7'/%3E%3Crect x='26' y='120' width='348' height='80' rx='8' fill='%23556077' opacity='.4'/%3E%3C/svg%3E" alt="城市探索封面：夜间街头线索采集实录">
+            <span class="blc-play" aria-hidden="true">▶</span>
+          </div>
+          <div class="blc-mini-body">
+            <h4>城市夜行记录：在一座城市里寻找被忽略的线索</h4>
+            <p>城市探索 · 脚步、录音与镜头共同构成的观察</p>
+            <div class="blc-mini-tags"><span class="blc-chip">城市探索</span><span class="blc-chip">日常记录</span></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 爆料流 ============ -->
+<section class="blc-section" id="blcStream">
+  <div class="blc-wrap">
+    <div class="blc-section-head">
+      <div>
+        <span class="blc-eyebrow">Stream</span>
+        <h2>爆料流 · <span>精品内容持续更新</span></h2>
+        <p>按主题筛选内容，点赞与收藏会即时保存到本地，方便你下次继续跟进。</p>
+      </div>
+      <span class="blc-chip blc-chip-hot">今日更新 9 条</span>
+    </div>
+
+    <div class="blc-filter" id="blcFilter">
+      <button type="button" class="blc-on" data-filter="all">全部</button>
+      <button type="button" data-filter="trace">热点追踪</button>
+      <button type="button" data-filter="interview">人物访谈</button>
+      <button type="button" data-filter="skill">实用技巧</button>
+      <button type="button" data-filter="city">城市探索</button>
+    </div>
+
+    <div class="blc-video-grid" id="blcVideoGrid">
+
+      <article class="blc-card" data-cat="trace">
+        <div class="blc-cover">
+          <span class="blc-tagline">热点追踪</span>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23161d29'/%3E%3Ccircle cx='240' cy='135' r='78' fill='none' stroke='%23ff4d5e' stroke-width='3' opacity='.8'/%3E%3Ccircle cx='240' cy='135' r='46' fill='none' stroke='%23ffd166' stroke-width='3' opacity='.8'/%3E%3Cpath d='M240 57 L240 213 M162 135 L318 135' stroke='%2333e0c8' stroke-width='2' opacity='.6'/%3E%3Crect x='30' y='30' width='90' height='24' rx='6' fill='%23ff4d5e'/%3E%3C/svg%3E" alt="热点追踪视频封面：线索来源与时间线梳理">
+          <span class="blc-play" aria-hidden="true">▶</span>
+          <div class="blc-meta-on-cover"><span>18:42</span><span>追踪</span></div>
+        </div>
+        <div class="blc-body">
+          <h3><a href="#blcStream">三天内 9 次反转：一条线索的完整时间线</a></h3>
+          <p>把散落的时间点排成一条线，很多看似矛盾的说法自然就清楚了。本期用时间轴还原全过程。</p>
+          <div class="blc-card-foot">
+            <span class="blc-author"><span class="blc-avatar" style="background:linear-gradient(135deg,#ff4d5e,#ff8391)">线</span>时间线小组</span>
+            <span class="blc-counts"><span>8.6k</span><span>1.9k</span></span>
+          </div>
+          <div class="blc-actions">
+            <button class="blc-act" data-act="like" type="button">♡ 点赞 <b>1243</b></button>
+            <button class="blc-act" data-act="save" type="button">☆ 收藏</button>
+            <button class="blc-act" data-act="share" type="button">↗ 分享</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="blc-card" data-cat="interview">
+        <div class="blc-cover">
+          <span class="blc-tagline">人物访谈</span>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23231a2c'/%3E%3Ccircle cx='150' cy='100' r='38' fill='%23ff8391'/%3E%3Ccircle cx='330' cy='100' r='38' fill='%2333e0c8'/%3E%3Cpath d='M92 220 Q150 150 208 220' fill='%23ff4d5e' opacity='.5'/%3E%3Cpath d='M272 220 Q330 150 388 220' fill='%23ffd166' opacity='.5'/%3E%3Crect x='150' y='234' width='180' height='6' rx='3' fill='%23556077'/%3E%3C/svg%3E" alt="人物访谈视频封面：两位创作者面对面交流">
+          <span class="blc-play" aria-hidden="true">▶</span>
+          <div class="blc-meta-on-cover"><span>31:06</span><span>对谈</span></div>
+        </div>
+        <div class="blc-body">
+          <h3><a href="#blcStream">对话十年调查记者：为什么慢一点反而更接近事实</a></h3>
+          <p>从业十年，他删掉的素材比发出的多十倍。这场对谈聊了聊职业倦怠、判断力与坚持。</p>
+          <div class="blc-card-foot">
+            <span class="blc-author"><span class="blc-avatar" style="background:linear-gradient(135deg,#33e0c8,#8ef0e2)">访</span>访谈栏目组</span>
+            <span class="blc-counts"><span>6.2k</span><span>1.4k</span></span>
+          </div>
+          <div class="blc-actions">
+            <button class="blc-act" data-act="like" type="button">♡ 点赞 <b>986</b></button>
+            <button class="blc-act" data-act="save" type="button">☆ 收藏</button>
+            <button class="blc-act" data-act="share" type="button">↗ 分享</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="blc-card" data-cat="skill">
+        <div class="blc-cover">
+          <span class="blc-tagline">实用技巧</span>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23131b22'/%3E%3Crect x='40' y='40' width='180' height='110' rx='10' fill='%23151a24' stroke='%2333e0c8'/%3E%3Crect x='58' y='62' width='70' height='8' rx='4' fill='%2333e0c8'/%3E%3Crect x='58' y='82' width='120' height='6' rx='3' fill='%23556077'/%3E%3Crect x='58' y='98' width='96' height='6' rx='3' fill='%23556077'/%3E%3Crect x='58' y='114' width='140' height='6' rx='3' fill='%23ff4d5e'/%3E%3Crect x='250' y='90' width='190' height='26' rx='6' fill='%23ffd166' opacity='.8'/%3E%3Crect x='250' y='130' width='140' height='10' rx='5' fill='%23556077'/%3E%3Crect x='250' y='154' width='110' height='10' rx='5' fill='%23556077'/%3E%3C/svg%3E" alt="实用技巧视频封面：截图核验与信息比对方法演示">
+          <span class="blc-play" aria-hidden="true">▶</span>
+          <div class="blc-meta-on-cover"><span>12:30</span><span>教程</span></div>
+        </div>
+        <div class="blc-body">
+          <h3><a href="#blcStream">三招识别被裁切的截图：普通人也能用的核验方法</a></h3>
+          <p>从边缘像素、光影方向到文件信息，手把手演示三种低成本核验思路，附常见误判案例。</p>
+          <div class="blc-card-foot">
+            <span class="blc-author"><span class="blc-avatar" style="background:linear-gradient(135deg,#ffd166,#ffb347)">技</span>技巧实验室</span>
+            <span class="blc-counts"><span>15.8k</span><span>4.1k</span></span>
+          </div>
+          <div class="blc-actions">
+            <button class="blc-act" data-act="like" type="button">♡ 点赞 <b>2154</b></button>
+            <button class="blc-act" data-act="save" type="button">☆ 收藏</button>
+            <button class="blc-act" data-act="share" type="button">↗ 分享</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="blc-card" data-cat="city">
+        <div class="blc-cover">
+          <span class="blc-tagline">城市探索</span>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23101722'/%3E%3Cg fill='%231b2433'%3E%3Crect x='20' y='120' width='60' height='150'/%3E%3Crect x='95' y='85' width='55' height='185'/%3E%3Crect x='165' y='140' width='70' height='130'/%3E%3Crect x='250' y='60' width='58' height='210'/%3E%3Crect x='323' y='110' width='64' height='160'/%3E%3Crect x='402' y='150' width='58' height='120'/%3E%3C/g%3E%3Cg fill='%23ffd166' opacity='.85'%3E%3Crect x='110' y='103' width='8' height='10'/%3E%3Crect x='128' y='103' width='8' height='10'/%3E%3Crect x='110' y='125' width='8' height='10'/%3E%3Crect x='266' y='80' width='8' height='10'/%3E%3Crect x='284' y='80' width='8' height='10'/%3E%3Crect x='266' y='102' width='8' height='10'/%3E%3C/g%3E%3Ccircle cx='420' cy='50' r='26' fill='%23ff4d5e' opacity='.6'/%3E%3C/svg%3E" alt="城市探索视频封面：夜间楼宇与线索采集路径">
+          <span class="blc-play" aria-hidden="true">▶</span>
+          <div class="blc-meta-on-cover"><span>22:11</span><span>记录</span></div>
+        </div>
+        <div class="blc-body">
+          <h3><a href="#blcStream">一座城市的夜晚：跟踪记录一条线索的两公里</a></h3>
+          <p>从路口到巷尾，镜头跟随一位普通市民走完他提供线索的全过程，真实、细碎，也动人。</p>
+          <div class="blc-card-foot">
+            <span class="blc-author"><span class="blc-avatar" style="background:linear-gradient(135deg,#8ef0e2,#33e0c8)">夜</span>夜行记录者</span>
+            <span class="blc-counts"><span>9.1k</span><span>2.2k</span></span>
+          </div>
+          <div class="blc-actions">
+            <button class="blc-act" data-act="like" type="button">♡ 点赞 <b>1432</b></button>
+            <button class="blc-act" data-act="save" type="button">☆ 收藏</button>
+            <button class="blc-act" data-act="share" type="button">↗ 分享</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="blc-card" data-cat="trace">
+        <div class="blc-cover">
+          <span class="blc-tagline">行业观察</span>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%231a1d29'/%3E%3Cg fill='%2333e0c8' opacity='.8'%3E%3Crect x='50' y='170' width='26' height='60'/%3E%3Crect x='90' y='140' width='26' height='90'/%3E%3Crect x='130' y='112' width='26' height='118'/%3E%3Crect x='170' y='82' width='26' height='148'/%3E%3C/g%3E%3Cg fill='%23ff4d5e' opacity='.85'%3E%3Crect x='250' y='60' width='26' height='170'/%3E%3Crect x='290' y='96' width='26' height='134'/%3E%3Crect x='330' y='130' width='26' height='100'/%3E%3Crect x='370' y='158' width='26' height='72'/%3E%3C/g%3E%3C/svg%3E" alt="行业观察视频封面：内容平台数据对比图表">
+          <span class="blc-play" aria-hidden="true">▶</span>
+          <div class="blc-meta-on-cover"><span>16:05</span><span>观察</span></div>
+        </div>
+        <div class="blc-body">
+          <h3><a href="#blcStream">内容平台的第三个十年：从流量逻辑到信任逻辑</a></h3>
+          <p>当用户越来越熟练地识别标题党，内容平台的价值判断也在改变，这期聊聊信任如何被建立。</p>
+          <div class="blc-card-foot">
+            <span class="blc-author"><span class="blc-avatar" style="background:linear-gradient(135deg,#ff8391,#ff4d5e)">观</span>观察员老周</span>
+            <span class="blc-counts"><span>5.4k</span><span>1.1k</span></span>
+          </div>
+          <div class="blc-actions">
+            <button class="blc-act" data-act="like" type="button">♡ 点赞 <b>764</b></button>
+            <button class="blc-act" data-act="save" type="button">☆ 收藏</button>
+            <button class="blc-act" data-act="share" type="button">↗ 分享</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="blc-card" data-cat="skill">
+        <div class="blc-cover">
+          <span class="blc-tagline">创作幕后</span>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23201a26'/%3E%3Crect x='40' y='40' width='400' height='60' rx='8' fill='%23151a24' stroke='%23ffd166'/%3E%3Crect x='58' y='60' width='140' height='8' rx='4' fill='%23ffd166'/%3E%3Crect x='40' y='120' width='180' height='110' rx='8' fill='%23ff4d5e' opacity='.35'/%3E%3Crect x='240' y='120' width='200' height='50' rx='8' fill='%2333e0c8' opacity='.3'/%3E%3Crect x='240' y='180' width='200' height='50' rx='8' fill='%23556077' opacity='.4'/%3E%3C/svg%3E" alt="创作幕后视频封面：剪辑时间线与分镜素材">
+          <span class="blc-play" aria-hidden="true">▶</span>
+          <div class="blc-meta-on-cover"><span>19:47</span><span>幕后</span></div>
+        </div>
+        <div class="blc-body">
+          <h3><a href="#blcStream">从 47 小时素材到 19 分钟成片：剪辑台上的取舍</a></h3>
+          <p>素材取舍从来不是技术问题而是价值判断。本期公开剪辑工程文件的关键节点与取舍理由。</p>
+          <div class="blc-card-foot">
+            <span class="blc-author"><span class="blc-avatar" style="background:linear-gradient(135deg,#ff4d5e,#ffd166)">剪</span>剪辑师小满</span>
+            <span class="blc-counts"><span>7.3k</span><span>2.6k</span></span>
+          </div>
+          <div class="blc-actions">
+            <button class="blc-act" data-act="like" type="button">♡ 点赞 <b>1105</b></button>
+            <button class="blc-act" data-act="save" type="button">☆ 收藏</button>
+            <button class="blc-act" data-act="share" type="button">↗ 分享</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="blc-card" data-cat="interview">
+        <div class="blc-cover">
+          <span class="blc-tagline">情感故事</span>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%2326202c'/%3E%3Cpath d='M240 210 C150 150 130 90 190 78 C220 72 240 96 240 108 C240 96 260 72 290 78 C350 90 330 150 240 210 Z' fill='%23ff8391' opacity='.8'/%3E%3Crect x='60' y='220' width='360' height='6' rx='3' fill='%23556077'/%3E%3C/svg%3E" alt="情感故事视频封面：心形图形与陪伴主题">
+          <span class="blc-play" aria-hidden="true">▶</span>
+          <div class="blc-meta-on-cover"><span>14:22</span><span>故事</span></div>
+        </div>
+        <div class="blc-body">
+          <h3><a href="#blcStream">那位每天来留言的用户，我们终于见到了他</a></h3>
+          <p>两年、487 条留言。他从一位普通观众变成了社区里最温暖的存在，这是一次迟到的见面。</p>
+          <div class="blc-card-foot">
+            <span class="blc-author"><span class="blc-avatar" style="background:linear-gradient(135deg,#ffb347,#ffd166)">暖</span>社区编辑部</span>
+            <span class="blc-counts"><span>11.2k</span><span>3.4k</span></span>
+          </div>
+          <div class="blc-actions">
+            <button class="blc-act" data-act="like" type="button">♡ 点赞 <b>3021</b></button>
+            <button class="blc-act" data-act="save" type="button">☆ 收藏</button>
+            <button class="blc-act" data-act="share" type="button">↗ 分享</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="blc-card" data-cat="city">
+        <div class="blc-cover">
+          <span class="blc-tagline">日常记录</span>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23142024'/%3E%3Cpath d='M0 200 Q120 150 240 190 T480 170 L480 270 L0 270 Z' fill='%231b3a34'/%3E%3Cpath d='M0 230 Q140 195 260 225 T480 205 L480 270 L0 270 Z' fill='%23132b27'/%3E%3Ccircle cx='386' cy='64' r='30' fill='%23ffd166' opacity='.85'/%3E%3C/svg%3E" alt="日常记录视频封面：清晨水面与远山剪影">
+          <span class="blc-play" aria-hidden="true">▶</span>
+          <div class="blc-meta-on-cover"><span>09:58</span><span>记录</span></div>
+        </div>
+        <div class="blc-body">
+          <h3><a href="#blcStream">早班六点半：一个信息核对员的一天开始了</a></h3>
+          <p>没有戏剧性的冲突，只有重复、耐心与一点点较真。日常记录系列第一期，献给普通岗位。</p>
+          <div class="blc-card-foot">
+            <span class="blc-author"><span class="blc-avatar" style="background:linear-gradient(135deg,#8ef0e2,#33e0c8)">日</span>日常记录组</span>
+            <span class="blc-counts"><span>6.8k</span><span>1.6k</span></span>
+          </div>
+          <div class="blc-actions">
+            <button class="blc-act" data-act="like" type="button">♡ 点赞 <b>892</b></button>
+            <button class="blc-act" data-act="save" type="button">☆ 收藏</button>
+            <button class="blc-act" data-act="share" type="button">↗ 分享</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="blc-card" data-cat="trace">
+        <div class="blc-cover">
+          <span class="blc-tagline">知识科普</span>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23171c26'/%3E%3Cg stroke='%2333e0c8' stroke-width='2' fill='none' opacity='.8'%3E%3Ccircle cx='160' cy='135' r='70'/%3E%3Ccircle cx='160' cy='135' r='42'/%3E%3C/g%3E%3Crect x='270' y='70' width='170' height='12' rx='6' fill='%23ff4d5e'/%3E%3Crect x='270' y='98' width='130' height='8' rx='4' fill='%23556077'/%3E%3Crect x='270' y='118' width='150' height='8' rx='4' fill='%23556077'/%3E%3Crect x='270' y='138' width='110' height='8' rx='4' fill='%23556077'/%3E%3Crect x='270' y='166' width='90' height='26' rx='6' fill='%23ffd166' opacity='.8'/%3E%3C/svg%3E" alt="知识科普视频封面：信息传播机制示意图">
+          <span class="blc-play" aria-hidden="true">▶</span>
+          <div class="blc-meta-on-cover"><span>21:34</span><span>科普</span></div>
+        </div>
+        <div class="blc-body">
+          <h3><a href="#blcStream">为什么假消息总比真相跑得快：一次传播学拆解</a></h3>
+          <p>从情绪触发、社交货币到算法偏好，用通俗语言讲清楚信息传播中的四个加速器。</p>
+          <div class="blc-card-foot">
+            <span class="blc-author"><span class="blc-avatar" style="background:linear-gradient(135deg,#ffd166,#8ef0e2)">科</span>科普小组</span>
+            <span class="blc-counts"><span>13.7k</span><span>3.9k</span></span>
+          </div>
+          <div class="blc-actions">
+            <button class="blc-act" data-act="like" type="button">♡ 点赞 <b>2678</b></button>
+            <button class="blc-act" data-act="save" type="button">☆ 收藏</button>
+            <button class="blc-act" data-act="share" type="button">↗ 分享</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 专题企划 ============ -->
+<section class="blc-section" id="blcTopics">
+  <div class="blc-wrap">
+    <div class="blc-section-head">
+      <div>
+        <span class="blc-eyebrow">Series</span>
+        <h2>专题企划 · <span>多视角的同一议题</span></h2>
+        <p>由官方编辑部牵头组织，围绕同一议题呈现不同立场与证据，形成可检索的内容资产。</p>
+      </div>
+    </div>
+    <div class="blc-topic-grid">
+      <article class="blc-topic">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 450'%3E%3Crect width='600' height='450' fill='%23201b2c'/%3E%3Cg stroke='%23ff8391' stroke-width='3' fill='none' opacity='.85'%3E%3Cpath d='M80 360 L170 240 L260 300 L350 170 L440 260 L530 130'/%3E%3C/g%3E%3Ccircle cx='350' cy='170' r='10' fill='%23ffd166'/%3E%3Crect x='60' y='50' width='180' height='30' rx='8' fill='%23ff4d5e' opacity='.8'/%3E%3C/svg%3E" alt="专题封面：真相与视角系列的多折线图">
+        <div class="blc-topic-mask">
+          <h3>专题一 · 真相与视角</h3>
+          <p>同一条线索的六种讲法，对比不同信源之间的差异与重合。</p>
+          <span class="blc-status blc-status-live">更新至 第 6 期</span>
+        </div>
+      </article>
+      <article class="blc-topic">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 450'%3E%3Crect width='600' height='450' fill='%23151f28'/%3E%3Cg fill='%2333e0c8' opacity='.7'%3E%3Crect x='70' y='230' width='46' height='150'/%3E%3Crect x='146' y='180' width='46' height='200'/%3E%3Crect x='222' y='130' width='46' height='250'/%3E%3Crect x='298' y='90' width='46' height='290'/%3E%3C/g%3E%3Cg fill='%23ff4d5e' opacity='.85'%3E%3Crect x='374' y='200' width='46' height='180'/%3E%3Crect x='450' y='150' width='46' height='230'/%3E%3C/g%3E%3C/svg%3E" alt="专题封面：普通人的核实日常系列柱状图">
+        <div class="blc-topic-mask">
+          <h3>专题二 · 普通人的核实日常</h3>
+          <p>走访十二位普通岗位工作者，记录他们如何与信息打交道。</p>
+          <span class="blc-status blc-status-soon">即将上线</span>
+        </div>
+      </article>
+      <article class="blc-topic">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 450'%3E%3Crect width='600' height='450' fill='%23241a22'/%3E%3Ccircle cx='200' cy='200' r='90' fill='%23ff4d5e' opacity='.55'/%3E%3Ccircle cx='340' cy='240' r='110' fill='%23ffd166' opacity='.4'/%3E%3Ccircle cx='420' cy='150' r='60' fill='%2333e0c8' opacity='.45'/%3E%3Crect x='60' y='360' width='300' height='12' rx='6' fill='%23556077'/%3E%3C/svg%3E" alt="专题封面：爆料之后系列人物剪影与圆形色块">
+        <div class="blc-topic-mask">
+          <h3>专题三 · 爆料之后</h3>
+          <p>当关注退潮，当事人的生活如何继续？第四季回访十位受访者。</p>
+          <span class="blc-status blc-status-done">已完结 · 共 10 期</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 创作者 + 作品墙 ============ -->
+<section class="blc-section" id="blcCreators">
+  <div class="blc-wrap">
+    <div class="blc-section-head">
+      <div>
+        <span class="blc-eyebrow">Creators</span>
+        <h2>创作者矩阵 · <span>社区的中坚力量</span></h2>
+        <p>他们风格各异，但都在用自己的方式，把真实的力量传递得更远。</p>
+      </div>
+      <button class="blc-btn blc-btn-ghost" data-blc-modal="submit" type="button">申请成为创作者</button>
+    </div>
+    <div class="blc-creator-grid">
+      <article class="blc-creator">
+        <div class="blc-creator-av" style="background:linear-gradient(135deg,#ff4d5e,#ffd166)">衡</div>
+        <h3>核查组 · 阿衡</h3>
+        <p class="blc-field">事实核查 / 深度追踪</p>
+        <p>前纸媒编辑，擅长把复杂线索拆成可验证的小问题。信条是“先怀疑，再相信”。</p>
+        <div class="blc-creator-nums"><div><b>126</b>作品</div><div><b>18.4w</b>粉丝</div></div>
+        <button class="blc-act" data-blc-author="核查组 · 阿衡|事实核查、时间线还原、多信源交叉，代表作《一图一流转》系列。" type="button">查看档案</button>
+      </article>
+      <article class="blc-creator">
+        <div class="blc-creator-av" style="background:linear-gradient(135deg,#33e0c8,#8ef0e2)">访</div>
+        <h3>访谈栏目组</h3>
+        <p class="blc-field">人物访谈 / 文化</p>
+        <p>团队三人，坚持长镜头与不剪掉沉默。相信慢下来的对话才有分量。</p>
+        <div class="blc-creator-nums"><div><b>88</b>作品</div><div><b>12.9w</b>粉丝</div></div>
+        <button class="blc-act" data-blc-author="访谈栏目组|人物访谈、行业观察，擅长长时段深度对谈与圆桌讨论。" type="button">查看档案</button>
+      </article>
+      <article class="blc-creator">
+        <div class="blc-creator-av" style="background:linear-gradient(135deg,#ffd166,#ffb347)">满</div>
+        <h3>剪辑师小满</h3>
+        <p class="blc-field">创作幕后 / 剪辑教程</p>
+        <p>把工作流公开成内容的人。剪过 4000 小时素材，也乐于教你少走弯路。</p>
+        <div class="blc-creator-nums"><div><b>203</b>作品</div><div><b>24.6w</b>粉丝</div></div>
+        <button class="blc-act" data-blc-author="剪辑师小满|剪辑工作流、分镜设计、素材取舍方法论，实用技巧向创作者。" type="button">查看档案</button>
+      </article>
+      <article class="blc-creator">
+        <div class="blc-creator-av" style="background:linear-gradient(135deg,#8ef0e2,#33e0c8)">夜</div>
+        <h3>夜行记录者</h3>
+        <p class="blc-field">城市探索 / 日常记录</p>
+        <p>常年夜间拍摄，用脚步丈量城市。作品安静、真实，有很浓的生活气。</p>
+        <div class="blc-creator-nums"><div><b>74</b>作品</div><div><b>9.2w</b>粉丝</div></div>
+        <button class="blc-act" data-blc-author="夜行记录者|城市夜拍、街头线索采集、城市探索与日常记录影像。" type="button">查看档案</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="blc-section" id="blcWall" style="padding-top:0">
+  <div class="blc-wrap">
+    <div class="blc-section-head">
+      <div>
+        <span class="blc-eyebrow">Gallery</span>
+        <h2>影像墙 · <span>社区作品精选</span></h2>
+        <p>来自创作者与用户的影像片段，尺寸混合排列，取材广泛，风格多元。</p>
+      </div>
+    </div>
+    <div class="blc-wall">
+      <figure class="blc-w-lg">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 480'%3E%3Crect width='640' height='480' fill='%23151d2a'/%3E%3Cpath d='M0 340 L130 220 L250 300 L390 160 L520 260 L640 180 L640 480 L0 480 Z' fill='%231e2a3a'/%3E%3Cpath d='M0 400 L160 300 L300 380 L460 250 L640 350 L640 480 L0 480 Z' fill='%23121a24'/%3E%3Ccircle cx='520' cy='90' r='40' fill='%23ffd166' opacity='.85'/%3E%3C/svg%3E" alt="影像墙大图：山脊轮廓与日落光晕的风景记录">
+        <figcaption>《傍晚六点的山脊线》 · 夜行记录者</figcaption>
+      </figure>
+      <figure class="blc-w-md">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%2324202c'/%3E%3Ccircle cx='200' cy='160' r='66' fill='%23ff8391' opacity='.85'/%3E%3Cpath d='M90 340 Q200 240 310 340' fill='%23ff4d5e' opacity='.5'/%3E%3Crect x='60' y='356' width='280' height='8' rx='4' fill='%23556077'/%3E%3C/svg%3E" alt="影像墙中图：柔光中的人像剪影与心形轮廓">
+        <figcaption>《门口那盏灯》 · 社区编辑部</figcaption>
+      </figure>
+      <figure>
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 240'%3E%3Crect width='400' height='240' fill='%23161f22'/%3E%3Cg fill='%2333e0c8' opacity='.7'%3E%3Crect x='40' y='140' width='30' height='70'/%3E%3Crect x='90' y='110' width='30' height='100'/%3E%3Crect x='140' y='80' width='30' height='130'/%3E%3C/g%3E%3Cg fill='%23ff4d5e' opacity='.8'%3E%3Crect x='230' y='120' width='30' height='90'/%3E%3Crect x='280' y='90' width='30' height='120'/%3E%3Crect x='330' y='60' width='30' height='150'/%3E%3C/g%3E%3C/svg%3E" alt="影像墙小图：数据柱状图与对比色块">
+        <figcaption>《数据里的真相》 · 科普小组</figcaption>
+      </figure>
+      <figure>
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 240'%3E%3Crect width='400' height='240' fill='%23201a26'/%3E%3Ccircle cx='120' cy='120' r='56' fill='none' stroke='%23ffd166' stroke-width='6'/%3E%3Ccircle cx='250' cy='120' r='56' fill='none' stroke='%2333e0c8' stroke-width='6'/%3E%3Cpath d='M120 120 L250 120' stroke='%23ff4d5e' stroke-width='4'/%3E%3C/svg%3E" alt="影像墙小图：双圆交叠的抽象几何构图">
+        <figcaption>《两种讲法》 · 访谈栏目组</figcaption>
+      </figure>
+      <figure class="blc-w-md">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23131c24'/%3E%3Cg stroke='%2333e0c8' stroke-opacity='.5' stroke-width='2' fill='none'%3E%3Cpath d='M40 320 L120 240 L200 280 L280 180 L360 230'/%3E%3C/g%3E%3Crect x='40' y='40' width='140' height='40' rx='8' fill='%23ff4d5e' opacity='.6'/%3E%3Crect x='40' y='100' width='100' height='8' rx='4' fill='%23556077'/%3E%3Crect x='40' y='120' width='120' height='8' rx='4' fill='%23556077'/%3E%3C/svg%3E" alt="影像墙中图：折线路径与深色背景的工作台">
+        <figcaption>《剪辑台上的第 47 小时》 · 剪辑师小满</figcaption>
+      </figure>
+      <figure>
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 240'%3E%3Crect width='400' height='240' fill='%231a2226'/%3E%3Cpath d='M0 180 Q100 130 200 170 T400 160 L400 240 L0 240 Z' fill='%23204a40'/%3E%3Ccircle cx='320' cy='60' r='28' fill='%23ffd166' opacity='.9'/%3E%3C/svg%3E" alt="影像墙小图：清晨湖面与远处薄雾">
+        <figcaption>《早班的湖》 · 日常记录组</figcaption>
+      </figure>
+      <figure>
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 240'%3E%3Crect width='400' height='240' fill='%23201b22'/%3E%3Crect x='50' y='70' width='300' height='100' rx='10' fill='%23151a24' stroke='%23ff8391'/%3E%3Crect x='70' y='92' width='120' height='10' rx='5' fill='%23ff8391'/%3E%3Crect x='70' y='114' width='200' height='8' rx='4' fill='%23556077'/%3E%3Crect x='70' y='134' width='160' height='8' rx='4' fill='%23ffd166'/%3E%3C/svg%3E" alt="影像墙小图：深色界面中的数据条目设计稿">
+        <figcaption>《界面上的证据》 · 核查组</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 用户口碑 ============ -->
+<section class="blc-section" id="blcVoice">
+  <div class="blc-wrap">
+    <div class="blc-section-head">
+      <div>
+        <span class="blc-eyebrow">Voice</span>
+        <h2>用户口碑 · <span>来自社区的真实反馈</span></h2>
+        <p>评论长度与关注点各不相同，我们如实呈现，不做筛选美化。</p>
+      </div>
+      <button class="blc-btn blc-btn-ghost" data-blc-modal="review" type="button">我也说两句</button>
+    </div>
+    <div class="blc-review-grid">
+      <article class="blc-review">
+        <div class="blc-review-head"><span class="blc-avatar" style="background:linear-gradient(135deg,#ff4d5e,#ffd166)">林</span><b>林间有风</b><span>关注 2 年</span></div>
+        <div class="blc-stars">★★★★★</div>
+        <p>最打动我的是修订记录公开这件事。很少见到一个平台愿意把“我改过”写在明面上，这种坦诚比任何口号都有说服力。</p>
+        <div class="blc-review-date">2026-11-12</div>
+      </article>
+      <article class="blc-review">
+        <div class="blc-review-head"><span class="blc-avatar" style="background:linear-gradient(135deg,#33e0c8,#8ef0e2)">陈</span><b>陈默的笔记本</b><span>创作者</span></div>
+        <div class="blc-stars">★★★★★</div>
+        <p>作为创作者，最直接的感受是选题工作坊真的有用。他们不会告诉你“什么会爆”，而是教你怎么把一个题目做扎实。</p>
+        <div class="blc-review-date">2026-11-08</div>
+      </article>
+      <article class="blc-review">
+        <div class="blc-review-head"><span class="blc-avatar" style="background:linear-gradient(135deg,#ffd166,#ffb347)">阿</span><b>阿哲在加班</b><span>普通用户</span></div>
+        <div class="blc-stars">★★★★☆</div>
+        <p>内容质量很稳，就是有些深度内容篇幅偏长，通勤路上常常看不完。希望以后能有更精细的章节标记。</p>
+        <div class="blc-review-date">2026-11-05</div>
+      </article>
+      <article class="blc-review">
+        <div class="blc-review-head"><span class="blc-avatar" style="background:linear-gradient(135deg,#ff8391,#ff4d5e)">二</span><b>二十点零八分</b><span>关注 1 年</span></div>
+        <div class="blc-stars">★★★★★</div>
+        <p>《普通人的核实日常》这个专题我反复看了三遍。原来认真这件事，被拍出来是这么有力量的。</p>
+        <div class="blc-review-date">2026-10-30</div>
+      </article>
+      <article class="blc-review">
+        <div class="blc-review-head"><span class="blc-avatar" style="background:linear-gradient(135deg,#8ef0e2,#33e0c8)">木</span><b>木木不熬夜</b><span>新用户</span></div>
+        <div class="blc-stars">★★★★☆</div>
+        <p>刚注册两周，界面挺好上手的。搜索偶尔想找老内容不太容易，建议再加个时间筛选。</p>
+        <div class="blc-review-date">2026-10-26</div>
+      </article>
+      <article class="blc-review">
+        <div class="blc-review-head"><span class="blc-avatar" style="background:linear-gradient(135deg,#ff4d5e,#8ef0e2)">老</span><b>老吴看片</b><span>关注 3 年</span></div>
+        <div class="blc-stars">★★★★★</div>
+        <p>从早期只有几十条内容看到现在，91爆料的品质一直是往上走的。社区氛围也克制，评论区很少吵架，挺难得。</p>
+        <div class="blc-review-date">2026-10-21</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 企业动态 + 榜单 ============ -->
+<section class="blc-section" id="blcNews">
+  <div class="blc-wrap">
+    <div class="blc-section-head">
+      <div>
+        <span class="blc-eyebrow">News</span>
+        <h2>企业动态 · <span>官方发布与更新日志</span></h2>
+        <p>记录品牌成长中的每一个节点，也欢迎你在评论中提出建议。</p>
+      </div>
+    </div>
+    <div class="blc-two-col">
+      <ul class="blc-timeline">
+        <li>
+          <time>2026-11-18</time>
+          <h4>创作者激励计划第二季正式开启报名</h4>
+          <p>面向新人创作者开放上传通道，入选者可获得选题指导、剪辑公开课与三个月流量扶持，报名截止 12 月 15 日。</p>
+        </li>
+        <li>
+          <time>2026-11-14</time>
+          <h4>「真相与视角」专题第六期上线</h4>
+          <p>本期聚焦同一线索的六种讲述方式，附带完整信源清单与修订说明，可在线检索引用。</p>
+        </li>
+        <li>
+          <time>2026-11-06</time>
+          <h4>举报与反馈通道完成升级</h4>
+          <p>新增内容纠错入口，用户可就画面、文字与时间信息提交修订建议，核查组承诺在 48 小时内回应。</p>
+        </li>
+        <li>
+          <time>2026-10-29</time>
+          <h4>与四家区域媒体达成内容合作</h4>
+          <p>双方将在本地热点追踪与城市影像记录方向共建内容，首批合作作品预计在 12 月发布。</p>
+        </li>
+        <li>
+          <time>2026-10-20</time>
+          <h4>移动端播放体验优化发布</h4>
+          <p>针对弱网环境新增多档清晰度自适应策略，拖动进度条的响应延迟平均降低约 35%。</p>
+        </li>
+      </ul>
+
+      <div>
+        <ul class="blc-rank">
+          <li><span class="blc-rank-no">1</span><span class="blc-rank-t">三招识别被裁切的截图：普通人也能用的核验方法</span><span class="blc-rank-v">15.8k</span></li>
+          <li><span class="blc-rank-no">2</span><span class="blc-rank-t">为什么假消息总比真相跑得快</span><span class="blc-rank-v">13.7k</span></li>
+          <li><span class="blc-rank-no">3</span><span class="blc-rank-t">一图一流转：12 条线索的交叉核查全过程</span><span class="blc-rank-v">12.4k</span></li>
+          <li><span class="blc-rank-no">4</span><span class="blc-rank-t">那位每天来留言的用户，我们终于见到了他</span><span class="blc-rank-v">11.2k</span></li>
+          <li><span class="blc-rank-no">5</span><span class="blc-rank-t">一座城市的夜晚：跟踪记录一条线索的两公里</span><span class="blc-rank-v">9.1k</span></li>
+          <li><span class="blc-rank-no">6</span><span class="blc-rank-t">三天内 9 次反转：一条线索的完整时间线</span><span class="blc-rank-v">8.6k</span></li>
+          <li><span class="blc-rank-no">7</span><span class="blc-rank-t">从 47 小时素材到 19 分钟成片</span><span class="blc-rank-v">7.3k</span></li>
+        </ul>
+        <div style="margin-top:18px" class="blc-partners">
+          <div class="blc-partner"><b>城市观察所</b>在地内容合作</div>
+          <div class="blc-partner"><b>影像工坊</b>设备与技术支持</div>
+          <div class="blc-partner"><b>核实计划</b>事实核查共建</div>
+          <div class="blc-partner"><b>青年纪录</b>新人创作者孵化</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ + 投稿 ============ -->
+<section class="blc-section" id="blcHelp">
+  <div class="blc-wrap">
+    <div class="blc-section-head">
+      <div>
+        <span class="blc-eyebrow">Help</span>
+        <h2>帮助中心 · <span>常见问题</span></h2>
+        <p>关于内容规范、投稿流程与合作方式，这里给出了最常见的解答。</p>
+      </div>
+    </div>
+    <div class="blc-faq">
+      <details open>
+        <summary>如何向 91爆料 提供线索？需要准备哪些材料？</summary>
+        <p>你可以通过页面底部的联系邮箱或投稿入口提交线索。建议同时提供可核实的基础信息，如时间、地点、相关素材来源说明。我们不要求你必须实名，但希望你能配合后续的核查沟通，这对内容品质非常关键。</p>
+      </details>
+      <details>
+        <summary>提交的线索一般多久会有回应？</summary>
+        <p>核查组会在收到线索后的 3 个工作日内给出初步判断。若线索进入正式核查流程，我们会在 48 小时内与提供者确认细节。因涉及多方信源交叉，部分复杂线索的周期可能延长至两周。</p>
+      </details>
+      <details>
+        <summary>平台对创作者的内容有哪些基本要求？</summary>
+        <p>原创、不侵犯他人隐私、不涉及未成年人敏感信息是三条硬性要求。此外我们建议创作者在讲述中保留可追溯的信息来源，避免使用未经核实的描述性结论。符合规范的内容将进入精品内容推荐池。</p>
+      </details>
+      <details>
+        <summary>为什么有些内容会标注“最近修订”？</summary>
+        <p>当核查流程发现新的证据，或当事人补充了关键信息，我们会主动修订内容并标注时间。修订记录可查是我们对真实与专业的基本承诺，也欢迎用户通过纠错入口参与。</p>
+      </details>
+      <details>
+        <summary>可以申请成为签约创作者吗？收益如何计算？</summary>
+        <p>可以。通过创作者申请弹窗提交基础资料与代表作品，编辑部会在 5 个工作日内回复。签约后按内容表现与专题贡献进行分成，具体方案在签约说明中列明，公开透明。</p>
+      </details>
+      <details>
+        <summary>品牌或机构如何与 91爆料 开展合作？</summary>
+        <p>我们开放专题共建、内容定制与技术支持三类合作。合作内容同样需要遵循平台的内容规范与核查标准。可在联系区块留言，注明合作方向，我们会安排专人对接。</p>
+      </details>
+      <details>
+        <summary>如何举报不当内容或反馈体验问题？</summary>
+        <p>每条内容页均可发起举报，也可在本页的联系入口提交说明。涉及事实错误的，请尽量提供可核对的依据。举报信息仅用于核查处理，我们会严格保护举报者身份。</p>
+      </details>
+    </div>
+
+    <div class="blc-submit">
+      <div>
+        <h3>加入 91爆料，把你的观察变成内容</h3>
+        <p>无论你手上是一条线索、一段素材，还是一个想认真讲清楚的故事，这里都有它的位置。</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="blc-btn blc-btn-primary" data-blc-modal="submit" type="button">提交投稿</button>
+        <button class="blc-btn blc-btn-ghost" data-blc-modal="contact" type="button">联系我们</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="blc-footer" id="blcFooter">
+  <div class="blc-wrap">
+    <div class="blc-footer-grid">
+      <div>
+        <div class="blc-foot-brand">
+          <span class="blc-logo-mark">91</span>
+          <div class="blc-logo-text"><b>91爆料</b><span>BAOLIAO VIDEO</span></div>
+        </div>
+        <p>91爆料官方网站 · 企业级综合视频资讯品牌。以真实、专业、持续运营为核心，深耕热点追踪与事实核查，为创作者与用户搭建值得信赖的内容生态。</p>
+        <div class="blc-foot-badges">
+          <span>原创优先</span><span>正版高清</span><span>官方发布</span><span>持续运营</span>
+        </div>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#blcFocus">焦点视频</a></li>
+          <li><a href="#blcStream">爆料流</a></li>
+          <li><a href="#blcTopics">专题企划</a></li>
+          <li><a href="#blcWall">影像墙</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于我们</h4>
+        <ul>
+          <li><a href="#blcAbout">品牌解析</a></li>
+          <li><a href="#blcCreators">创作者矩阵</a></li>
+          <li><a href="#blcNews">企业动态</a></li>
+          <li><a href="#blcVoice">用户口碑</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>联系与合作</h4>
+        <ul>
+          <li>合作邮箱：partner@baoliaovideo.cn</li>
+          <li>投稿邮箱：story@baoliaovideo.cn</li>
+          <li>编辑部：周一至周五 09:30-18:30</li>
+          <li><a href="#blcHelp">常见问题</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="blc-foot-bottom">
+      <span>© 2026 91爆料 官方网站 · 版权所有 · 持续运营中</span>
+      <span>内容合规编号 2026-BLC-1147 · 举报与纠错通道全天开放</span>
+    </div>
+  </div>
+</footer>
+
+<button class="blc-top-btn" id="blcTopBtn" aria-label="回到顶部">↑</button>
+<div class="blc-toast" id="blcToast" role="status" aria-live="polite"></div>
+
+<div class="blc-modal" id="blcModal" role="dialog" aria-modal="true" aria-labelledby="blcModalTitle">
+  <div class="blc-modal-box">
+    <button class="blc-modal-close" id="blcModalClose" aria-label="关闭">×</button>
+    <h3 id="blcModalTitle">投稿</h3>
+    <p id="blcModalDesc">请填写基本信息，编辑部会在 3 个工作日内回复。</p>
+    <div id="blcModalBody"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- 移动端导航 ---------- */
+  var burger = document.getElementById('blcBurger');
+  var nav = document.getElementById('blcNav');
+  if(burger && nav){
+    burger.addEventListener('click', function(){
+      var open = nav.classList.toggle('blc-open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A' && window.innerWidth <= 760){
+        nav.classList.remove('blc-open');
+        burger.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  /* ---------- Toast ---------- */
+  var toastEl = document.getElementById('blcToast');
+  var toastTimer = null;
+  function toast(msg){
+    if(!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add('blc-show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){
+      toastEl.classList.remove('blc-show');
+    }, 2100);
+  }
+
+  /* ---------- 搜索反馈 ---------- */
+  var searchForm = document.getElementById('blcSearchForm');
+  var searchInput = document.getElementById('blcSearchInput');
+  var searchTip = document.getElementById('blcSearchTip');
+  var searchBtn = document.getElementById('blcSearchBtn');
+  function runSearch(){
+    var q = (searchInput && searchInput.value || '').trim();
+    if(!searchTip) return;
+    if(!q){
+      searchTip.textContent = '请输入关键词，例如“核查”“访谈”“剪辑”或创作者昵称。';
+      searchTip.classList.add('blc-show');
+      return;
+    }
+    searchTip.textContent = '正在为你检索「' + q + '」相关内容：已匹配到 6 条爆料、3 位创作者、2 个专题，可在下方列表继续浏览。';
+    searchTip.classList.add('blc-show');
+    toast('搜索「' + q + '」完成');
+  }
+  if(searchBtn) searchBtn.addEventListener('click', runSearch);
+  if(searchForm) searchForm.addEventListener('submit', function(e){ e.preventDefault(); runSearch(); });
+  if(searchInput){
+    searchInput.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){ e.preventDefault(); runSearch(); }
+    });
+  }
+
+  /* ---------- 标签筛选 ---------- */
+  var filterWrap = document.getElementById('blcFilter');
+  var videoGrid = document.getElementById('blcVideoGrid');
+  if(filterWrap && videoGrid){
+    filterWrap.addEventListener('click', function(e){
+      var btn = e.target.closest('button[data-filter]');
+      if(!btn) return;
+      var val = btn.getAttribute('data-filter');
+      Array.prototype.forEach.call(filterWrap.querySelectorAll('button'), function(b){
+        b.classList.toggle('blc-on', b === btn);
+      });
+      var shown = 0;
+      Array.prototype.forEach.call(videoGrid.children, function(card){
+        var cat = card.getAttribute('data-cat');
+        var match = (val === 'all' || cat === val);
+        card.classList.toggle('blc-hide', !match);
+        if(match) shown++;
+      });
+      toast('已筛选：' + btn.textContent + '（' + shown + ' 条内容）');
+    });
+  }
+
+  /* ---------- 点赞 / 收藏 / 分享 ---------- */
+  videoGrid && videoGrid.addEventListener('click', function(e){
+    var btn = e.target.closest('button[data-act]');
+    if(!btn) return;
+    var act = btn.getAttribute('data-act');
+    if(act === 'like'){
+      var b = btn.querySelector('b');
+      var n = b ? parseInt(b.textContent, 10) || 0 : 0;
+      var liked = btn.classList.toggle('blc-liked');
+      if(b) b.textContent = liked ? (n + 1) : Math.max(0, n - 1);
+      toast(liked ? '已点赞，感谢你的支持' : '已取消点赞');
+    } else if(act === 'save'){
+      var saved = btn.classList.toggle('blc-saved');
+      btn.textContent = saved ? '★ 已收藏' : '☆ 收藏';
+      toast(saved ? '已加入收藏夹' : '已取消收藏');
+    } else if(act === 'share'){
+      openModal('share', '分享', '把这条内容分享给朋友，让更多人看到真实的力量。');
+    }
+  });
+
+  /* ---------- 回顶 ---------- */
+  var topBtn = document.getElementById('blcTopBtn');
+  window.addEventListener('scroll', function(){
+    if(!topBtn) return;
+    topBtn.classList.toggle('blc-show', window.scrollY > 520);
+  }, {passive:true});
+  topBtn && topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* ---------- 弹窗 ---------- */
+  var modal = document.getElementById('blcModal');
+  var modalTitle = document.getElementById('blcModalTitle');
+  var modalDesc = document.getElementById('blcModalDesc');
+  var modalBody = document.getElementById('blcModalBody');
+  var modalClose = document.getElementById('blcModalClose');
+
+  function esc(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];
+    });
+  }
+
+  function openModal(kind, title, desc){
+    if(!modal) return;
+    modalTitle.textContent = title || '提示';
+    modalDesc.textContent = desc || '';
+    var html = '';
+
+    if(kind === 'submit'){
+      html = ''
+        + '<div class="blc-field-row"><label for="blcF1">你的称呼</label><input id="blcF1" type="text" placeholder="例如：林间有风"></div>'
+        + '<div class="blc-field-row"><label for="blcF2">联系方式（邮箱或微信号）</label><input id="blcF2" type="text" placeholder="方便编辑部与你取得联系"></div>'
+        + '<div class="blc-field-row"><label for="blcF3">线索或作品简介</label><textarea id="blcF3" rows="4" placeholder="时间、地点、素材来源说明，越具体越有助于核查"></textarea></div>'
+        + '<button class="blc-btn blc-btn-primary" id="blcSubmitBtn" type="button">提交</button>';
+    } else if(kind === 'contact'){
+      html = ''
+        + '<div class="blc-field-row"><label for="blcC1">你的称呼</label><input id="blcC1" type="text" placeholder="如何称呼你"></div>'
+        + '<div class="blc-field-row"><label for="blcC2">合作方向</label><input id="blcC2" type="text" placeholder="如：专题共建 / 内容定制 / 技术支持"></div>'
+        + '<div class="blc-field-row"><label for="blcC3">具体说明</label><textarea id="blcC3" rows="4" placeholder="简单描述你的需求与预期时间"></textarea></div>'
+        + '<button class="blc-btn blc-btn-primary" id="blcContactBtn" type="button">发送</button>';
+    } else if(kind === 'share'){
+      html = ''
+        + '<div class="blc-share-row">'
+        + '<button type="button" data-share="微信">微信</button>'
+        + '<button type="button" data-share="微博">微博</button>'
+        + '<button type="button" data-share="QQ">QQ</button>'
+        + '<button type="button" data-share="复制链接">复制链接</button>'
+        + '</div>'
+        + '<p style="margin:0;font-size:12.5px">内容支持正版高清呈现，转载或引用请注明来源：91爆料。</p>';
+    } else if(kind === 'review'){
+      html = ''
+        + '<div class="blc-field-row"><label for="blcR1">你的称呼</label><input id="blcR1" type="text" placeholder="昵称"></div>'
+        + '<div class="blc-field-row"><label for="blcR2">评分</label><input id="blcR2" type="text" placeholder="1-5 分"></div>'
+        + '<div class="blc-field-row"><label for="blcR3">想说的内容</label><textarea id="blcR3" rows="4" placeholder="使用体验、内容质量、社区氛围…"></textarea></div>'
+        + '<button class="blc-btn blc-btn-primary" id="blcReviewBtn" type="button">发布评价</button>';
+    } else if(kind === 'author'){
+      html = '<p style="margin:0;color:#bcc7d9;font-size:13.5px">' + esc(desc || '') + '</p>'
+        + '<div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">'
+        + '<button class="blc-btn blc-btn-primary" type="button" data-follow>关注作者</button>'
+        + '<button class="blc-btn blc-btn-ghost" type="button" data-close2>关闭</button>'
+        + '</div>';
+    } else if(kind === 'report'){
+      html = ''
+        + '<div class="blc-field-row"><label for="blcP1">问题类型</label><input id="blcP1" type="text" placeholder="事实错误 / 侵权 / 体验问题"></div>'
+        + '<div class="blc-field-row"><label for="blcP2">补充说明</label><textarea id="blcP2" rows="4" placeholder="请尽量提供可核对的依据"></textarea></div>'
+        + '<button class="blc-btn blc-btn-primary" id="blcReportBtn" type="button">提交反馈</button>';
+    }
+
+    modalBody.innerHTML = html;
+    modal.classList.add('blc-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(){
+    if(!modal) return;
+    modal.classList.remove('blc-open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('click', function(e){
+    var trigger = e.target.closest('[data-blc-modal]');
+    if(trigger){
+      var kind = trigger.getAttribute('data-blc-modal');
+      if(kind === 'submit') openModal('submit', '投稿入口', '请填写基本信息，编辑部会在 3 个工作日内回复。');
+      else if(kind === 'contact') openModal('contact', '联系与合作', '告诉我们你的需求，我们会安排专人对接。');
+      else if(kind === 'review') openModal('review', '写下你的评价', '你的反馈会帮助我们把内容做得更好。');
+      else openModal(kind, '提示', '');
+      return;
+    }
+
+    var authorBtn = e.target.closest('[data-blc-author]');
+    if(authorBtn){
+      var parts = (authorBtn.getAttribute('data-blc-author') || '').split('|');
+      openModal('author', parts[0] || '作者档案', parts[1] || '');
+      return;
+    }
+
+    if(e.target.closest('[data-follow]')){
+      toast('已关注该创作者');
+      closeModal();
+      return;
+    }
+    if(e.target.closest('[data-close2]')){
+      closeModal();
+      return;
+    }
+
+    var shareBtn = e.target.closest('[data-share]');
+    if(shareBtn){
+      var ch = shareBtn.getAttribute('data-share');
+      if(ch === '复制链接'){
+        var link = 'https://www.baoliaovideo.cn/';
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(link).then(function(){
+            toast('链接已复制');
+          }, function(){
+            toast('复制失败，请手动复制');
+          });
+        } else {
+          toast('已生成分享链接');
+        }
+      } else {
+        toast('已生成' + ch + '分享卡片');
+      }
+      return;
+    }
+
+    if(e.target.id === 'blcSubmitBtn'){
+      var n1 = document.getElementById('blcF1');
+      var v1 = n1 ? n1.value.trim() : '';
+      if(!v1){ toast('请先填写你的称呼'); return; }
+      toast('投稿已提交，感谢你的线索');
+      closeModal();
+      return;
+    }
+    if(e.target.id === 'blcContactBtn'){
+      toast('已发送，我们会尽快回复');
+      closeModal();
+      return;
+    }
+    if(e.target.id === 'blcReviewBtn'){
+      toast('评价已提交，感谢你的反馈');
+      closeModal();
+      return;
+    }
+    if(e.target.id === 'blcReportBtn'){
+      toast('反馈已收到，核查组会跟进');
+      closeModal();
+      return;
+    }
+
+    if(e.target === modal) closeModal();
+  });
+
+  modalClose && modalClose.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeModal();
+  });
+
+  /* ---------- 导航高亮 ---------- */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.blc-nav a'));
+  var sections = navLinks.map(function(a){
+    var id = a.getAttribute('href');
+    return id && id.length > 1 ? document.querySelector(id) : null;
+  });
+  function syncNav(){
+    var pos = window.scrollY + 170;
+    var activeIdx = 0;
+    sections.forEach(function(sec, i){
+      if(sec && sec.offsetTop <= pos) activeIdx = i;
+    });
+    navLinks.forEach(function(a, i){
+      a.classList.toggle('blc-nav-active', i === activeIdx);
+    });
+  }
+  window.addEventListener('scroll', syncNav, {passive:true});
+  syncNav();
+
+  /* ---------- 页脚纠错入口 ---------- */
+  var footBottom = document.querySelector('.blc-foot-bottom');
+  if(footBottom){
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'blc-act';
+    btn.style.cssText = 'width:auto;padding:4px 14px;margin-left:10px';
+    btn.textContent = '内容纠错';
+    btn.addEventListener('click', function(){
+      openModal('report', '内容纠错与反馈', '如发现事实错误或体验问题，欢迎随时告知，我们会认真核查。');
+    });
+    footBottom.appendChild(btn);
+  }
+
+})();
+</script>
+</body>
+            </html>
